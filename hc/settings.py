@@ -90,8 +90,7 @@ if os.environ.get('TRAVIS_DB', None):
          'PASSWORD' : '',
          'HOST' : '127.0.0.1'
       }
- else:
- 
+else:
      DATABASES['default'] = dj_database_url.config()
 
 
