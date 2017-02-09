@@ -25,6 +25,14 @@ DEFAULT_FROM_EMAIL = 'healthchecks@example.org'
 USE_PAYMENTS = False
 
 
+DJMAIL_REAL_BACKEND = os.environ.get('DJMAIL_REAL_BACKEND')
+EMAIL_USE_TLS = True
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = 587
+
+
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',

@@ -60,6 +60,89 @@
     <div class="col-sm-6">
         <div class="panel panel-default">
             <div class="panel-body settings-block">
+                <form method="post">
+                    {% csrf_token %}
+                    <h2>Weekly Reports</h2>
+                    <label>
+                        <input
+                            name="reports_allowed"
+                            type="checkbox"
+                            {% if profile.reports_allowed %} checked {% endif %}>
+                        Each week send me a summary of my checks
+                    </label>
+                    <button
+                        name="update_reports_allowed"
+                        type="submit"
+                        class="btn btn-default pull-right">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+	<div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-body settings-block">
+                <h2>API Access</h2>
+                {% if profile.api_key %}
+                    {% if show_api_key %}
+                        API key: <code>{{ profile.api_key }}</code>
+                        <button
+                            data-toggle="modal"
+                            data-target="#revoke-api-key-modal"
+                            class="btn btn-danger pull-right">Revoke</button>
+
+                    {% else %}
+                        <span class="icon-ok"></span>
+                        API access is enabled.
+                        <form method="post">
+                            {% csrf_token %}
+
+                            <button
+                                type="submit"
+                                name="show_api_key"
+                                class="btn btn-default pull-right">Show API key</button>
+                        </form>
+                    {% endif %}
+                {% else %}
+                    <span class="icon-cancel"></span>
+                    API access is disabled.
+                    <form method="post">
+                        {% csrf_token %}
+                        <button
+                            type="submit"
+                            name="create_api_key"
+                            class="btn btn-default pull-right">Create API key</button>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-body settings-block">
+                <form method="post">
+                    {% csrf_token %}
+                    <h2>Daily Reports</h2>
+                    <label>
+                        <input
+                            name="reports_allowed"
+                            type="checkbox"
+                            {% if profile.reports_allowed %} checked {% endif %}>
+                        Each day send me a summary of my checks
+                    </label>
+                    <button
+                        name="update_reports_allowed"
+                        type="submit"
+                        class="btn btn-default pull-right">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-6">
+        <div class="panel panel-default">
+            <div class="panel-body settings-block">
                 <h2>Team Access</h2>
                 {% if profile.member_set.count %}
                     <table class="table">
@@ -111,45 +194,6 @@
                     class="btn btn-primary pull-right"
                     data-toggle="modal"
                     data-target="#invite-team-member-modal">Invite a Team Member</a>
-                {% endif %}
-            </div>
-        </div>
-    </div>
-
-    <div class="col-sm-6">
-        <div class="panel panel-default">
-            <div class="panel-body settings-block">
-                <h2>API Access</h2>
-                {% if profile.api_key %}
-                    {% if show_api_key %}
-                        API key: <code>{{ profile.api_key }}</code>
-                        <button
-                            data-toggle="modal"
-                            data-target="#revoke-api-key-modal"
-                            class="btn btn-danger pull-right">Revoke</button>
-
-                    {% else %}
-                        <span class="icon-ok"></span>
-                        API access is enabled.
-                        <form method="post">
-                            {% csrf_token %}
-
-                            <button
-                                type="submit"
-                                name="show_api_key"
-                                class="btn btn-default pull-right">Show API key</button>
-                        </form>
-                    {% endif %}
-                {% else %}
-                    <span class="icon-cancel"></span>
-                    API access is disabled.
-                    <form method="post">
-                        {% csrf_token %}
-                        <button
-                            type="submit"
-                            name="create_api_key"
-                            class="btn btn-default pull-right">Create API key</button>
-                    </form>
                 {% endif %}
             </div>
         </div>
