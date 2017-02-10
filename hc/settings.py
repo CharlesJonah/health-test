@@ -93,10 +93,7 @@ DATABASES = {}
 if os.environ.get('TRAVIS_DB', None):
      DATABASES['default'] = {
          'ENGINE' : 'django.db.backends.sqlite3',
-         'NAME' : 'hc',
-         'USER' : 'travis',
-         'PASSWORD' : 'tttt,
-         'HOST' : '127.0.0.1'
+         'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
       }
 else:
      DATABASES['default'] = dj_database_url.config()

@@ -2,7 +2,7 @@
 env:
     - DB=sqlite
     - TRAVIS_DB=True
-    - SECRET_KEY=FDDFFDFyu4344353632627723728382
+    - SECRET_KEY="FDDFFDFyu4344353632627723728382"
 postgresql: "9.4"
 language: python
 python:
