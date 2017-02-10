@@ -65,13 +65,13 @@
                     <h2>Weekly Reports</h2>
                     <label>
                         <input
-                            name="reports_allowed"
+                            name="weekly_reports_allowed"
                             type="checkbox"
-                            {% if profile.reports_allowed %} checked {% endif %}>
+                            {% if profile.weekly_reports_allowed %} checked{% endif %}>
                         Each week send me a summary of my checks
                     </label>
                     <button
-                        name="update_reports_allowed"
+                        name="update_weekly_reports_allowed"
                         type="submit"
                         class="btn btn-default pull-right">Save</button>
                 </form>
@@ -126,13 +126,13 @@
                     <h2>Daily Reports</h2>
                     <label>
                         <input
-                            name="reports_allowed"
+                            name="daily_reports_allowed"
                             type="checkbox"
-                            {% if profile.reports_allowed %} checked {% endif %}>
+                            {% if profile.daily_reports_allowed %} {% endif %}>
                         Each day send me a summary of my checks
                     </label>
                     <button
-                        name="update_reports_allowed"
+                        name="update_daily_reports_allowed"
                         type="submit"
                         class="btn btn-default pull-right">Save</button>
                 </form>
