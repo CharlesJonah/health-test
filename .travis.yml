@@ -11,3 +11,5 @@ install: "pip install -r requirements.txt"
 script: 
     - coverage run --source=hc manage.py test
 after_success: coveralls
+notifications:
+  slack: andela:qtLGmldEK6FQYHRx3fAaaYhP
