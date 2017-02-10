@@ -92,10 +92,10 @@ DATABASES = {}
 
 if os.environ.get('TRAVIS_DB', None):
      DATABASES['default'] = {
-         'ENGINE' : 'django.db.backends.postgresql',
+         'ENGINE' : 'django.db.backends.sqlite3',
          'NAME' : 'hc',
          'USER' : 'travis',
-         'PASSWORD' : '',
+         'PASSWORD' : 'tttt,
          'HOST' : '127.0.0.1'
       }
 else:
